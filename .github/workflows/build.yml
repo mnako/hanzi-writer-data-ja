@@ -5,13 +5,11 @@ on:
    - cron: 0 0 * * *
  pull_request:
    types: [opened, synchronize, reopened, closed]
-
-  workflow_dispatch:
+ workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Update Kanji Data
