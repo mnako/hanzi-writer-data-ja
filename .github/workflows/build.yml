@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install jq
-        run: apt-get install -y jq
+        run: sudo apt-get install -y jq
 
       - name: Clone animCJK
         run: git clone --depth 1 https://github.com/parsimonhi/animCJK
