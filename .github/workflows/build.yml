@@ -1,0 +1,24 @@
+name: build
+
+on:
+ schedule:
+   - cron: 0 0 * * *
+ pull_request:
+   types: [opened, synchronize, reopened, closed]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update Kanji Data
+        uses: technote-space/create-pr-action@v2
+        with:
+          EXECUTE_COMMANDS: |
+            sh .github/workflows/build.sh
+          COMMIT_MESSAGE: 'Update Kanji Data'
+          PR_BRANCH_NAME: 'update/kanji-${PR_ID}'
+          PR_TITLE: 'Update Kanji Data'
