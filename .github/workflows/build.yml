@@ -22,11 +22,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
       - name: Clone animCJK
-        run: git clone --depth 1 https://github.com/parsimonhi/animCJK
+        uses: actions/checkout@v2
+        with:
+          repository: parsimonhi/animCJK
+          path: animCJK
 
       - name: Generate Kanji Data
         run: sh .github/workflows/build.sh
