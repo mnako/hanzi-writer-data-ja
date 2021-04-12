@@ -1,0 +1,34 @@
+name: build
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mnako/hanzi-writer-data-ja
+        uses: actions/checkout@v2
+
+      - name: Checkout parsimonhi/animCJK
+        uses: actions/checkout@v2
+        with:
+          repository: parsimonhi/animCJK
+          path: animCJK
+
+      - name: Generate Kanji Data
+        run: sh .github/workflows/build.sh
+
+      - name: Clean
+        run: rm data/.json && rm -rf animCJK
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update Kanji Data from the latest master of parsimonhi/animCJK.
+          title: Update Kanji Data
+          body: Update Kanji Data from the latest master of parsimonhi/animCJK.
+          branch: update/kanji
