@@ -1,1 +1,1 @@
-MD5 (animCJK/graphicsJa.txt) = fa17f48cd1736d04ab8e7e9071bea7dc
+MD5 (animCJK/graphicsJa.txt) = 2a7b36c4caf4ef3207e3ef67e2910fe6
