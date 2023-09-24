@@ -1,0 +1,16 @@
+name: "Continuous Integration"
+
+on:
+  pull_request:
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Run Tests"
+        run: make test
