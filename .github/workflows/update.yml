@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout mnako/hanzi-writer-data-ja
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout parsimonhi/animCJK
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: parsimonhi/animCJK
           path: animCJK
