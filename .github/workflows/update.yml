@@ -2,13 +2,14 @@ name: "Update Kanji Data from animCJK"
 
 on:
   schedule:
-    - cron: "0 9 * * *"
-
+    - cron: "0 22 * * *"
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 55
+
     steps:
       - name: Checkout mnako/hanzi-writer-data-ja
         uses: actions/checkout@v2
@@ -32,3 +33,4 @@ jobs:
           title: Update Kanji Data
           body: Update Kanji Data from the latest master of parsimonhi/animCJK.
           branch: update/kanji
+          branch-suffix: timestamp
