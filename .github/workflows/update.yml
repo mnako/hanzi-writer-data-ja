@@ -27,7 +27,7 @@ jobs:
         run: rm -f data/.json && rm -rf animCJK
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: Update Kanji Data from the latest master of parsimonhi/animCJK.
           title: Update Kanji Data
