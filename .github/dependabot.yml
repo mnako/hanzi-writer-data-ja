@@ -1,6 +1,10 @@
+---
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
+  - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+      day: friday
+      time: "18:00"
+      timezone: Asia/Tokyo

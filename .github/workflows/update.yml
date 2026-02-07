@@ -1,35 +1,30 @@
-name: "Update Kanji Data from animCJK"
-
-on:
+---
+name: Update Kanji Data from animCJK
+"on":
   schedule:
-    - cron: "0 22 * * *"
-  workflow_dispatch:
-
+    - cron: "0 9 * * 5"
+  workflow_dispatch: null
 jobs:
   update:
-    runs-on: ubuntu-latest
-    timeout-minutes: 55
-
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
     steps:
       - name: Checkout mnako/hanzi-writer-data-ja
-        uses: actions/checkout@v6
-
+        uses: actions/checkout@v6.0.2
       - name: Checkout parsimonhi/animCJK
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
         with:
           repository: parsimonhi/animCJK
           path: animCJK
-
       - name: Update Kanji Data from animCJK
         run: bash .github/workflows/update.sh
-
       - name: Clean
         run: rm -f data/.json && rm -rf animCJK
-
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@v8.1.0
         with:
-          commit-message: Update Kanji Data from the latest master of parsimonhi/animCJK.
+          commit-message: Update Kanji Data from the latest master of
+            parsimonhi/animCJK.
           title: Update Kanji Data
           body: Update Kanji Data from the latest master of parsimonhi/animCJK.
           branch: update/kanji
