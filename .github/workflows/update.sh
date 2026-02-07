@@ -1,3 +1,5 @@
+#!/bin/bash
+
 checksum=$(md5sum --tag animCJK/graphicsJa.txt)
 if [[ $(< graphicsJa.md5.txt) == "$checksum" ]]; then
   echo "No new changes in Kanji data to update"
