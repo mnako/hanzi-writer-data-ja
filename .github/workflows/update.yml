@@ -10,9 +10,9 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout mnako/hanzi-writer-data-ja
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.0
       - name: Checkout parsimonhi/animCJK
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.0
         with:
           repository: parsimonhi/animCJK
           path: animCJK
